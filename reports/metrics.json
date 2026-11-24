@@ -1,0 +1,226 @@
+{
+  "summary": {
+    "as_of": "2025-06-30",
+    "outcome_window": "Jul 2025 – Jun 2026",
+    "accounts": 59097,
+    "exposure": 9621981251,
+    "default_rate": 0.0733,
+    "expected_loss": 451699808,
+    "high_or_critical": 6981,
+    "currently_delinquent": 4238,
+    "auc": 0.8612,
+    "gini": 0.7223,
+    "ks": 0.5578,
+    "uplift_vs_rule": 23802889,
+    "uplift_vs_rule_pct": 0.265,
+    "calls": 11819,
+    "handed_to_recoveries": 903,
+    "handed_to_recoveries_arrears": 33188054
+  },
+  "metrics": {
+    "lightgbm": {
+      "auc": 0.8612,
+      "gini": 0.7223,
+      "ks": 0.5578,
+      "pr_auc": 0.4731,
+      "brier": 0.0507,
+      "capture_at_capacity": 0.7088
+    },
+    "logistic_regression": {
+      "auc": 0.8614,
+      "gini": 0.7228,
+      "ks": 0.5588,
+      "pr_auc": 0.4732,
+      "brier": 0.0507,
+      "capture_at_capacity": 0.7102
+    },
+    "rule_based": {
+      "auc": 0.8236,
+      "gini": 0.6473,
+      "ks": 0.4943,
+      "pr_auc": 0.3328,
+      "brier": null,
+      "capture_at_capacity": 0.652
+    }
+  },
+  "business_headline": {
+    "capacity": 0.2,
+    "model_loss_prevented": 113608422,
+    "rule_loss_prevented": 89805533,
+    "random_loss_prevented": 27476572,
+    "uplift_vs_rule": 23802889,
+    "uplift_vs_rule_pct": 0.265,
+    "model_defaulters_reached": 0.5732,
+    "rule_defaulters_reached": 0.652,
+    "calls": 11819
+  },
+  "fairness": {
+    "policy": "Flagged = in the top 20% of the book by expected loss",
+    "note": "Gender and age are not model inputs; they are used only for this audit.",
+    "gender": [
+      {
+        "group": "Female",
+        "accounts": 20146,
+        "actual_rate": 0.0744,
+        "avg_pd": 0.0728,
+        "flag_rate": 0.1965,
+        "tpr": 0.5317,
+        "fpr": 0.1696,
+        "tpr_pd_only": 0.6971,
+        "avg_exposure": 161519,
+        "auc": 0.854,
+        "tpr_gap_vs_largest": -0.0635,
+        "calibration_ratio": 0.978
+      },
+      {
+        "group": "Male",
+        "accounts": 38951,
+        "actual_rate": 0.0727,
+        "avg_pd": 0.0726,
+        "flag_rate": 0.2018,
+        "tpr": 0.5952,
+        "fpr": 0.171,
+        "tpr_pd_only": 0.7149,
+        "avg_exposure": 163488,
+        "auc": 0.8649,
+        "tpr_gap_vs_largest": 0.0,
+        "calibration_ratio": 0.999
+      }
+    ],
+    "age_band": [
+      {
+        "group": "21–25",
+        "accounts": 9359,
+        "actual_rate": 0.0926,
+        "avg_pd": 0.0914,
+        "flag_rate": 0.2302,
+        "tpr": 0.5732,
+        "fpr": 0.1951,
+        "tpr_pd_only": 0.7589,
+        "avg_exposure": 147291,
+        "auc": 0.8543,
+        "tpr_gap_vs_largest": 0.0023,
+        "calibration_ratio": 0.987
+      },
+      {
+        "group": "26–35",
+        "accounts": 24361,
+        "actual_rate": 0.0744,
+        "avg_pd": 0.0751,
+        "flag_rate": 0.2022,
+        "tpr": 0.5709,
+        "fpr": 0.1726,
+        "tpr_pd_only": 0.7248,
+        "avg_exposure": 159556,
+        "auc": 0.863,
+        "tpr_gap_vs_largest": 0.0,
+        "calibration_ratio": 1.009
+      },
+      {
+        "group": "36–45",
+        "accounts": 20182,
+        "actual_rate": 0.0649,
+        "avg_pd": 0.0641,
+        "flag_rate": 0.1872,
+        "tpr": 0.5832,
+        "fpr": 0.1598,
+        "tpr_pd_only": 0.6733,
+        "avg_exposure": 168862,
+        "auc": 0.8613,
+        "tpr_gap_vs_largest": 0.0123,
+        "calibration_ratio": 0.988
+      },
+      {
+        "group": "46+",
+        "accounts": 5195,
+        "actual_rate": 0.0654,
+        "avg_pd": 0.0606,
+        "flag_rate": 0.1848,
+        "tpr": 0.5471,
+        "fpr": 0.1594,
+        "tpr_pd_only": 0.6324,
+        "avg_exposure": 182595,
+        "auc": 0.8558,
+        "tpr_gap_vs_largest": -0.0238,
+        "calibration_ratio": 0.927
+      }
+    ]
+  },
+  "importance": [
+    {
+      "feature": "Bureau score",
+      "key": "bureau_score",
+      "mean_abs_shap": 0.587
+    },
+    {
+      "feature": "Late months (last 6)",
+      "key": "late_months_6m",
+      "mean_abs_shap": 0.2364
+    },
+    {
+      "feature": "Recent credit enquiries",
+      "key": "enquiries_6m",
+      "mean_abs_shap": 0.2073
+    },
+    {
+      "feature": "Credit utilisation",
+      "key": "credit_utilisation",
+      "mean_abs_shap": 0.1666
+    },
+    {
+      "feature": "EMI-to-income ratio",
+      "key": "emi_to_income",
+      "mean_abs_shap": 0.1621
+    },
+    {
+      "feature": "Past defaults on bureau",
+      "key": "prior_defaults",
+      "mean_abs_shap": 0.0775
+    },
+    {
+      "feature": "Years employed",
+      "key": "years_employed",
+      "mean_abs_shap": 0.0748
+    },
+    {
+      "feature": "Employment type",
+      "key": "employment_type",
+      "mean_abs_shap": 0.0681
+    },
+    {
+      "feature": "Average days late",
+      "key": "avg_days_late",
+      "mean_abs_shap": 0.0673
+    },
+    {
+      "feature": "Times arrears rolled forward",
+      "key": "dpd_roll_forwards",
+      "mean_abs_shap": 0.0657
+    },
+    {
+      "feature": "Interest rate",
+      "key": "annual_rate_pct",
+      "mean_abs_shap": 0.0647
+    },
+    {
+      "feature": "Product",
+      "key": "product",
+      "mean_abs_shap": 0.0473
+    },
+    {
+      "feature": "Current arrears",
+      "key": "current_arrears",
+      "mean_abs_shap": 0.0308
+    },
+    {
+      "feature": "Monthly income",
+      "key": "monthly_income",
+      "mean_abs_shap": 0.0252
+    },
+    {
+      "feature": "Worst days past due",
+      "key": "max_dpd_6m",
+      "mean_abs_shap": 0.0246
+    }
+  ]
+}

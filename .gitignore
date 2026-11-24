@@ -1,0 +1,19 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Generated raw data and database (rebuild with: python run_pipeline.py)
+# Leading slash: only the top-level folder. dashboard/public/data is committed
+# so the dashboard works without running the pipeline.
+/data/
+
+# Node
+dashboard/node_modules/
+dashboard/dist/
+*.tsbuildinfo
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
