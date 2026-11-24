@@ -2,6 +2,8 @@
 
 **A credit-risk early-warning system that ranks a lender's live loan book by rupees at risk, explains every flag in plain language, and proves its value against the current process.**
 
+### 🔗 [Live demo: riskradar-neon.vercel.app](https://riskradar-neon.vercel.app)
+
 ![RiskRadar portfolio view](docs/screenshots/overview.png)
 
 > **Result:** with the same team and the same 11,819 calls, calling in RiskRadar order prevents **₹2.4 crore more credit loss per cycle (+26.5%)** than today's "most overdue first" order, in a backtest on 59,097 loans worth ₹962 crore.
